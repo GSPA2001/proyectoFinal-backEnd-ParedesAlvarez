@@ -1,0 +1,66 @@
+<div class="container mt-1 rounded bg-danger text-white bg-opacity-75">
+  <h1 class="text-center mb-4">{{title}}</h1>
+  <h2 class="text-center text-muted text-uppercase py-2">{{userName}}</h2>
+  <hr class="text-white" />
+  <h2 class="text-center text-muted text-uppercase py-2">{{userRol}}</h2>
+  <div class="text-center" style="margin-top: 10px">
+    <form
+      action="/api/sessions/logout"
+      method="get"
+      style="margin-bottom: 24px;"
+    >
+      <button type="submit" class="btn btn-outline-light">Salir</button>
+    </form>
+  </div>
+  <nav aria-label="Paginacion">
+    <ul class="pagination">
+      {{#if pagination.hasPrevPage}}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="/products?page={{pagination.prevPage}}&limit={{pagination.limit}}"
+          >Anterior</a>
+        </li>
+      {{/if}}
+      <li class="page-item">
+        <a
+          class="page-link"
+          href="/products?page=1&limit={{pagination.limit}}"
+        >Pag 1</a>
+      </li>
+      {{#if pagination.hasNextPage}}
+        <li class="page-item">
+          <a
+            class="page-link"
+            href="/products?page={{pagination.nextPage}}&limit={{pagination.limit}}"
+          >Siguiente</a>
+        </li>
+      {{/if}}
+    </ul>
+  </nav>
+  <div class="row">
+    {{#each products}}
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img
+            src="{{this.thumbnail}}"
+            alt="{{this.title}}"
+            class="card-img-top"
+            style="max-height: 200px; object-fit: cover;"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+            <p class="card-text">Precio: {{this.price}}</p>
+            <p class="card-text">Stock: {{this.stock}}</p>
+            <a
+              href="#"
+              class="btn btn-success btn-sm addToCart"
+              data-product-id="{{this._id}}"
+            >Agregar al Carrito</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

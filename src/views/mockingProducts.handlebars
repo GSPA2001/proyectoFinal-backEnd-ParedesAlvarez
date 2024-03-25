@@ -1,0 +1,66 @@
+<body class="bg-danger-subtle">
+  <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <h1>Mocking Products</h1>
+      </blockquote>
+    </figure>
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <!-- version carrusel se ven los 100 productos slide automatico y manual-->
+    {{#each products}}
+      <div class="carousel-item {{#unless @index}}active{{/unless}}">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <img src="{{thumbnail}}" class="d-block w-100" alt="Product Image">
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">{{title}}</h5>
+                  <p class="card-text">{{description}}</p>
+                  <p class="card-text"><strong>Price:</strong> {{price}}</p>
+                  <p class="card-text"><strong>Category:</strong> {{category}}</p>
+                  <p class="card-text"><strong>Stock:</strong> {{stock}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {{#if @last}}
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+  <a class="carousel-control-prev" href="#productCarousel" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true">🔙</span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#productCarousel" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true">🔜</span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+  </div>
+</body>
+<!-- version clasica se ven los 100 productos
+<div class="container">
+  <div class="row">
+    {{#each products}}
+      <div class="col-md-3 mb-4">
+        <div class="card">
+          <img src="{{thumbnail}}" class="card-img-top" alt="Thumbnail">
+          <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">{{description}}</p>
+            <p class="card-text"><strong>Price:</strong> {{price}}</p>
+            <p class="card-text"><strong>Category:</strong> {{category}}</p>
+            <p class="card-text"><strong>Stock:</strong> {{stock}}</p>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>-->

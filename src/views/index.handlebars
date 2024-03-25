@@ -1,0 +1,38 @@
+<body class="bg-danger-subtle">
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+                <h1>Hola, {{ name }}! Bienvenido👋🏼!</h1>
+            </blockquote>
+            <figcaption class="blockquote-footer"> Decimoquinto desafío (Cuarta Práctica de integración sobre ecommerce) - <cite title="Source Title">CoderHouse</cite></figcaption>
+        </figure>
+    </div>    
+    <div class="text-center" style="margin-top: 32px">
+        <a class="btn btn-outline-primary" href="/register" role="button">Registrarse</a>
+    </div>
+    <div class="text-center" style="margin-top: 32px">
+        <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
+    </div>
+    <div class="text-center" style="margin-top: 32px">
+        <a class="btn btn-outline-success" href="/chat" role="button" onmouseover="showToast()" onmouseout="hideToast()">Chat</a>
+    </div>
+    <div class="text-center" style="margin-top: 32px">
+        <a class="btn btn-outline-secondary" href="/cookies" role="button">Cookies</a>
+    </div>
+
+    <script>
+        function showToast() {
+            Toastify({
+                text: "Debes estar logueado para acceder al chat",
+                backgroundColor: "#ff5c5cc1",
+                borderRadius: "10px",
+                fontWeight: "300",
+                position: "right", // `left`, `center` or `right`
+            }).showToast();
+        }
+
+        function hideToast() {
+            Toastify.hideToast();
+        }
+    </script>
+</body>

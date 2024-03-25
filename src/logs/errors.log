@@ -1,0 +1,118 @@
+{
+    "message": "This is an error ❌ log",
+    "level": "error",
+    "timestamp": "2024-02-14T22:40:48.174Z"
+}
+{
+    "message": "This is a fatal 🆘 log",
+    "level": "debug",
+    "timestamp": "2024-02-14T22:40:48.174Z"
+}
+{
+    "message": "This is an info ℹ️ log",
+    "level": "info",
+    "timestamp": "2024-02-29T23:07:13.098Z"
+}
+{
+    "message": "This is a warning 🚫 log",
+    "level": "warning",
+    "timestamp": "2024-02-29T23:07:13.100Z"
+}
+{
+    "message": "This is an error ❌ log",
+    "level": "error",
+    "timestamp": "2024-02-29T23:07:13.100Z"
+}
+{
+    "message": "This is a fatal 🆘 log",
+    "level": "debug",
+    "timestamp": "2024-02-29T23:07:13.100Z"
+}
+{
+    "message": "Accediendo a la página de chat 💬..",
+    "level": "info",
+    "timestamp": "2024-02-29T23:09:01.195Z"
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-02-29T23:23:09.814Z'
+}
+{
+  message: 'This is an info ℹ️ log',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:08.791Z'
+}
+{
+  message: 'This is a warning 🚫 log',
+  level: 'warning',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:08.792Z'
+}
+{
+  message: 'This is an error ❌ log',
+  level: 'error',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:08.792Z'
+}
+{
+  message: 'This is a fatal 🆘 log',
+  level: 'fatal',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:08.793Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:35.007Z'
+}
+{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-02-29T23:24:44.530Z'
+}
+{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-12T23:49:16.429Z'
+}
+{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-12T23:51:28.937Z'
+}{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-13T00:28:47.307Z'
+}
+{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-13T00:29:16.792Z'
+}
+{
+  message: 'Accediendo a la página de productos en tiempo real ⏱️..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-13T00:29:56.516Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-13T01:13:36.450Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-03-22T02:36:46.451Z'
+}

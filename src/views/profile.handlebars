@@ -1,0 +1,14 @@
+<body class="bg-danger-subtle">
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+        <figure class="text-center"><blockquote class="blockquote">
+            <h1>Perfil de usuario</h1></blockquote>
+        </figure>
+    </div>    
+    <h2 class='text-center mb-4'>{{userName}}</h2>
+    <h2 class='text-center mb-4'>{{userRol}}</h2>
+    <div class="float-end">
+        <form action="/api/sessions/logout" method="get">
+            <button type="submit" class="btn btn-danger">Salir</button>
+        </form>
+    </div>
+</body>

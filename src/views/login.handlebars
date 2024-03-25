@@ -1,0 +1,41 @@
+<body class="bg-danger-subtle">
+<style>
+    .login-container {
+        max-width: 360px;
+        margin: auto;
+        margin-top: 64px;
+    }
+</style>
+
+
+<div class="login-container">
+    <h1><b>CODERStore</b></h1>
+    <h2>Login de usuario</h2>
+
+    <form action="/api/sessions/login" method="post" style="margin-top: 32px;">
+        <div class="input-group" style="width: 300px; margin-bottom: 32px;">
+            <span class="input-group-text" id="group1"><i class="fa-solid fa-user"></i></span>
+            <input type="email" name="mail" class="form-control" placeholder="Email" required="required">
+        </div>
+
+        <div class="input-group" style="width: 300px; margin-bottom: 32px;">
+            <span class="input-group-text" id="group2"><i class="fa-solid fa-lock"></i></span>
+            <input type="password" name="pass" class="form-control" placeholder="Contraseña" required="required">
+        </div>
+
+        <button type="submit" class="btn btn-success" style="margin-bottom: 30px;">Ingresar</button>
+
+        <div style="margin-bottom: 32px;">
+            <a class="btn btn-outline-primary" href="/api/sessions/github" role="button">Ingresar con GitHub</a>
+        </div>
+
+        <div style="margin-bottom: 32px;">
+            <a class="btn btn-outline-primary" href="/recover" role="button">Restaurar</a>
+        </div>
+
+        <div style="margin-top: 32px">
+            <a class="btn btn-outline-primary" href="/register" role="button">Registrarse</a>
+        </div>
+    </form>
+</div>
+</body>

@@ -1,0 +1,110 @@
+[
+  {
+    "first_name": "Juan",
+    "last_name": "Apellido",
+    "email": "j@example.com",
+    "age": 23,
+    "cart": "65f0d6b24637dec2bc7a0a3e",
+    "password": "contraseña",
+    "rol": "ADMIN"
+  },
+  {
+    "first_name": "Coder",
+    "last_name": "House",
+    "email": "adminCoder@coder.com",
+    "age": 18,
+    "password": "curso",
+    "cart":"65f0d4ef4637dec2bc7a09b1",
+    "rol": "ADMIN"
+  },
+  {
+    "first_name": "Dr. House",
+    "last_name": "Digital",
+    "email": "digitalhouse@example.com",
+    "age": 22,
+    "password": "contraseña",
+    "rol": "premium"
+  },
+  {
+    "first_name": "Marta",
+    "last_name": "Apellido",
+    "email": "m@example.com",
+    "age": 23,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Orly",
+    "last_name": "Restall",
+    "email": "orestall0@multiply.com",
+    "age": 19,
+    "password": "contraseña",
+    "rol": "user",
+    "__v": 0
+  },
+  {
+    "first_name": "Federico",
+    "last_name": "Hulstrom",
+    "email": "fhulstrom3@dion.ne.jp",
+    "age": 39,
+    "password": "contraseña",
+    "rol": "user",
+    "__v": 0
+  },
+  {
+    "first_name": "Richmound",
+    "last_name": "Dannohl",
+    "email": "rdannohl4@myspace.com",
+    "age": 19,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Arne",
+    "last_name": "Alwen",
+    "email": "aalwen5@wix.com",
+    "age": 34,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Dot",
+    "last_name": "Durning",
+    "email": "ddurning6@adobe.com",
+    "age": 23,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Frieda",
+    "last_name": "Pitchers",
+    "email": "fpitchers7@jiathis.com",
+    "age": 64,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "john.doe@example.com",
+    "age": 30,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Jennifer",
+    "last_name": "Doe",
+    "email": "jenn.doe@example.com",
+    "age": 32,
+    "password": "contraseña",
+    "rol": "user"
+  },
+  {
+    "first_name": "Mike",
+    "last_name": "Doe",
+    "email": "m.doe@example.com",
+    "age": 18,
+    "password": "contraseña",
+    "rol": "user"
+  }
+]

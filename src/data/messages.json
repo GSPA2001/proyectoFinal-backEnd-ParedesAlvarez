@@ -1,0 +1,44 @@
+[
+  {
+    "user": "Coder",
+    "message": "Hola, a todos",
+    "createdAt": "2024-02-28T12:24:22.694+00:00",
+    "updatedAt":"2024-02-28T12:24:22.694+00:00"
+  },
+  {
+    "user": "Juan",
+    "message": "Hola, ¿cómo estás?",
+    "createdAt": "2024-01-16T23:01:04.112+00:00",
+    "updatedAt": "2024-01-16T23:01:04.112+00:00"
+  },
+  {
+    "user": "Coder",
+    "message": "Hola Juan, estoy bien, ¿tú?",
+    "createdAt": "2024-01-16T23:02:10.215+00:00",
+    "updatedAt": "2024-01-16T23:02:10.215+00:00"
+  },
+  {
+    "user": "Juan",
+    "message": "Bien también, ¿qué has estado haciendo?",
+    "createdAt": "2024-01-16T23:03:20.319+00:00",
+    "updatedAt": "2024-01-16T23:03:20.319+00:00"
+  },
+  {
+    "user": "Coder",
+    "message": "He estado trabajando en algunos proyectos interesantes. ¿Y tú?",
+    "createdAt": "2024-01-16T23:04:35.421+00:00",
+    "updatedAt": "2024-01-16T23:04:35.421+00:00"
+  },
+  {
+    "user": "Juan",
+    "message": "Yo también he estado ocupado con el trabajo. ¿Has escuchado algo sobre la nueva actualización de software?",
+    "createdAt": "2024-01-16T23:05:45.523+00:00",
+    "updatedAt": "2024-01-16T23:05:45.523+00:00"
+  },
+  {
+    "user": "Coder",
+    "message": "Sí, he estado siguiendo las noticias al respecto. Parece prometedor.",
+    "createdAt": "2024-01-16T23:07:02.624+00:00",
+    "updatedAt": "2024-01-16T23:07:02.624+00:00"
+  }
+]

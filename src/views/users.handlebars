@@ -1,0 +1,43 @@
+<body class="bg-danger-subtle">
+    <div class="p-3 mb-2 bg-info-subtle text-emphasis-info">
+        <figure class="text-center"><blockquote class="blockquote">
+            <h1>{{title}}</h1></blockquote>
+        </figure>
+    </div>   
+    <div class="float-end">
+        <form action="/api/sessions/logout" method="get" style="margin-bottom: 24px;">
+            <button type="submit" class="btn btn-danger">Salir</button>
+        </form>
+    </div>
+
+    <nav aria-label="Paginacion">
+        <ul class="pagination">
+            {{#if data.hasPrevPage}}<li class="page-item"><a class="page-link" href="/users?page={{data.prevPage}}">Anterior</a></li>{{/if}}
+            <li class="page-item"><a class="page-link" href="/users?page=1">Pag 1</a></li>
+            <li class="page-item"><a class="page-link" href="#">Pag {{data.page}} de {{data.totalPages}}</a></li>
+            {{#if data.hasNextPage}}<li class="page-item"><a class="page-link" href="/users?page={{data.nextPage}}">Siguiente</a></li>{{/if}}
+        </ul>
+    </nav>
+
+    <table class="table caption-top table-striped border border-3">
+        <caption class="text-center">Informacion de usuarios</caption>
+        <thead>
+            <tr>
+                <th scope="col">⇥</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Correo Electrónico</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each data.docs}}
+                <tr>
+                    <th scope="row">{{@index}}</th>
+                    <td>{{this.first_name}}</td>
+                    <td>{{this.last_name}}</td>
+                    <td>{{this.email}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
