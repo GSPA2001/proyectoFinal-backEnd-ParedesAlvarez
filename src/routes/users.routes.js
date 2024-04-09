@@ -12,9 +12,56 @@ router.get("/", async (req, res) => {
     res.status(200).send({ status: "OK", data: users });
   } catch (err) {
     console.error("Error:", err);
+    res.status(500).send({ status: "ERR", message: "Error interno del servidor." });
+  }
+});
+
+router.delete("/", async (req, res) => {
+  try {
+    const deletedUsers = await controller.deleteInactiveUsers(2);
+    res.status(200).send({ status: "OK", message: `Deleted ${deletedUsers.length} users` });
+  } catch (err) {
     res
-      .status(500)
-      .send({ status: "ERR", message: "Error interno del servidor." });
+    .status(500)
+    .send({ status: "ERR", message: "Error interno del servidor." });
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const user = await controller.getUserById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ status: 'ERR', message: 'User not found' });
+    }
+    res.status(200).json({ status: 'OK', data: user });
+  } catch (err) {
+    res.status(500).json({ status: 'ERR', message: err.message });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const user = await controller.getUserById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ status: 'ERR', message: 'User not found' });
+    }
+    const updatedUser = await controller.updateUser(req.body, user);
+    res.status(200).json({ status: 'OK', data: updatedUser });
+  } catch (err) {
+    res.status(500).json({ status: 'ERR', message: err.message });
+  }
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const user = await controller.getUserById(req.params.id);
+    if (!user) {
+      return res.status(404).json({ status: 'ERR', message: 'User not found' });
+    }
+    await controller.deleteUser(user);
+    res.status(200).json({ status: 'OK', message: 'User deleted' });
+  } catch (err) {
+    res.status(500).json({ status: 'ERR', message: err.message });
   }
 });
 
@@ -28,8 +75,8 @@ router.get("/paginated", async (req, res) => {
 
     if (isNaN(page) || isNaN(limit) || page < 1 || limit < 1) {
       return res
-        .status(400)
-        .send({
+       .status(400)
+       .send({
           status: "ERR",
           message: "Página no válida o parámetros de límite",
         });
@@ -40,8 +87,8 @@ router.get("/paginated", async (req, res) => {
   } catch (err) {
     console.error("Error:", err);
     res
-      .status(500)
-      .send({ status: "ERR", message: "Error interno del servidor." });
+     .status(500)
+     .send({ status: "ERR", message: "Error interno del servidor." });
   }
 });
 

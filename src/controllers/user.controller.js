@@ -24,6 +24,23 @@ export class UserController {
             return err.message;
         }
     }    
+    async deleteInactiveUsers(days) {
+        try {
+            return await service.deleteInactiveUsers(days);
+        } catch (err) {
+            console.error(err);
+            throw new Error("Error deleting inactive users");
+        }
+    }
+    
+    async getUserById(id) {
+        try {
+            return await service.getUserById(id);
+        } catch (err) {
+            console.error(err);
+            throw new Error("Error getting user by ID");
+        }
+    }
     
     async generateMockUsers(qty){
         const mockCarts = [];
