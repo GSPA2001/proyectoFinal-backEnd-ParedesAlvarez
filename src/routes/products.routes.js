@@ -1,9 +1,13 @@
 import { Router } from "express";
 import { uploader } from "../uploader.js";
 import { ProductController } from "../controllers/product.controller.js";
+import { UserController } from "../controllers/user.controller.js";
+import { mailerService } from '../utils.js';
+import config from "../config.js";
 
 const router = Router();
 const controller = new ProductController();
+const userController = new UserController();
 
 /**
  * @openapi
@@ -172,6 +176,43 @@ router.param("pid", async (req, res, next, pid) => {
     next();
   } else {
     res.status(404).send({ status: "ERR", data: "Parámetro no válido" });
+  }
+});
+
+router.delete("/:pid", async (req, res) => {
+  try {
+    const productId = req.params.pid;
+
+    // Obtener el producto por su ID
+    const product = await controller.getProduct(productId); // Usar el método getProduct del controlador de productos
+    if (!product) {
+      return res.status(404).json({ status: "ERR", message: "Product not found" });
+    }
+
+    // Obtener el usuario al que pertenece el producto
+    const user = await userController.getUserById(product.userId); // Usar el método getUserById del controlador de usuarios
+    if (!user) {
+      return res.status(404).json({ status: "ERR", message: "User not found" });
+    }
+
+    // Eliminar el producto
+    await productService.deleteProduct(product);
+
+    // Si el usuario es premium, enviar un correo electrónico
+    if (user.role === "premium") {
+      const emailContent = `Querido ${user.email},\n\nLamentamos informarle que el producto con ID ${productId} ha sido eliminado.\n\nAtentamente,\nThe Admin Team`;
+      await mailerService.sendMail({
+        from: config.GOOGLE_APP_EMAIL,
+        to: user.email,
+        subject: 'Product Deleted',
+        text: emailContent
+      });
+    }
+
+    // Enviar respuesta al cliente
+    res.status(200).json({ status: "OK", message: "Product deleted" });
+  } catch (err) {
+    res.status(500).json({ status: "ERR", message: err.message });
   }
 });
 

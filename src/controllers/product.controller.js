@@ -48,17 +48,17 @@ export class ProductController {
         
     async updateProduct(id, newContent) {
         try {
-            return await service.updateProduct()
+            return await service.updateProduct(id, newContent);
         } catch (err) {
-            return err.message
+            return err.message;
         }
     }
 
     async deleteProduct(id) {
         try {
-            return await service.deleteProduct()
+            return await service.deleteProduct(id);
         } catch (err) {
-            return err.message
+            return err.message;
         }
     }
 }
