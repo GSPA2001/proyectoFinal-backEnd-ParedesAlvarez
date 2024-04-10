@@ -21,6 +21,8 @@ const mailerService = nodemailer.createTransport({
   },
 });
 
+export default mailerService;
+
 export const sendConfirmation = () => {
   return async (req, res, next) => {
     try {

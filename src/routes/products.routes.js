@@ -2,7 +2,7 @@ import { Router } from "express";
 import { uploader } from "../uploader.js";
 import { ProductController } from "../controllers/product.controller.js";
 import { UserController } from "../controllers/user.controller.js";
-import { mailerService } from '../utils.js';
+import mailerService from '../utils.js';
 import config from "../config.js";
 
 const router = Router();
