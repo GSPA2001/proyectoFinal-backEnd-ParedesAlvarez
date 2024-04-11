@@ -79,13 +79,17 @@ router.get("/top", async (req, res) => {
 router.get("/:cid", async (req, res) => {
   try {
     const cartId = req.params.cid;
-    const cart = await cartModel.findById(cartId).populate("products.product");
+    const cart = await cartModel.findById(cartId).populate({
+      path: 'products',
+      populate: { path: 'pid', model: 'products' } // detalles del producto
+    }).populate("user");
 
     if (!cart)
       return res
         .status(404)
         .json({ error: `The cart with id ${cartId} does not exist` });
-    res.status(200).json({ status: "success", payload: cart });
+
+    res.status(200).render("carts", { cart });
   } catch (err) {
     return res.status(500).json({ status: "error", error: err.message });
   }

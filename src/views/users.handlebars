@@ -27,16 +27,33 @@
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th scope="col">Correo Electrónico</th>
+                <th scope="col">Rol</th>
+                <th scope="col">Acciones</th>
             </tr>
         </thead>
         <tbody>
             {{#each data.docs}}
-                <tr>
-                    <th scope="row">{{@index}}</th>
-                    <td>{{this.first_name}}</td>
-                    <td>{{this.last_name}}</td>
-                    <td>{{this.email}}</td>
-                </tr>
+            <tr>
+                <th scope="row">{{@index}}</th>
+                <td>{{this.first_name}}</td>
+                <td>{{this.last_name}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.rol}}</td>
+                <td>
+                    <form action="/users/{{this._id}}" method="post">
+                        <select name="rol" id="rol" class="form-select">
+                            <option value="ADMIN">Admin</option>
+                            <option value="premium">Premium</option>
+                            <option value="user">User</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Modificar Rol</button>
+                    </form>
+                    <form action="/users/{{this._id}}" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                    </form>
+                </td>
+            </tr>
             {{/each}}
         </tbody>
     </table>

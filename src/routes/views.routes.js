@@ -145,6 +145,16 @@ router.get("/recover", async (req, res) => {
   res.render("recover", {});
 });
 
+router.get("/checkout", async (req, res) => {
+  try {
+    // Renderiza la página de checkout
+    res.render("checkout");
+  } catch (err) {
+    console.error("Error:", err);
+    res.status(500).json({ status: "error", error: err.message });
+  }
+});
+
 // Rutas get, post, delete para la página de productos en tiempo real
 router.get("/realTimeProducts", async (req, res) => {
   req.logger.info('Accediendo a la página de productos en tiempo real ⏱️..');

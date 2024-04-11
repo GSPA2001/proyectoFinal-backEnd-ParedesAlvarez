@@ -1,0 +1,30 @@
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+  <div class="w-full max-w-md p-4 bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 lg:p-8">
+    <h2 class="mb-4 text-2xl font-bold text-center text-gray-700">Checkout</h2>
+    <div class="mb-4">
+      <!-- Mostrar resumen del carrito -->
+      <h3 class="text-lg font-semibold">Resumen del Carrito:</h3>
+      <div id="cartProducts" class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        {{#each cart.products}}
+          <div class="mb-4">
+            <h3 class="text-lg font-semibold">{{this.title}}</h3>
+            <p class="text-sm text-gray-600">Precio: {{this.price}}</p>
+            <p class="text-sm text-gray-600">Cantidad: {{this.quantity}}</p>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="flex items-center">
+      <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none" id="confirmOrderButton">Confirmar Orden</button>
+    </div>
+  </div>
+  
+  <div class="mt-4">
+    <!-- Enlaces de navegación -->
+    <a class="btn btn-outline-success" href="/" role="button">Inicio</a>
+    <a class="btn btn-outline-warning" href="/cookies" role="button">Cookies</a>
+    <a class="btn btn-outline-primary" href="/register" role="button">Registrarse</a>
+    <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
+    <a class="btn btn-outline-success" href="/chat" role="button">Chat</a>
+  </div>
+</div>
