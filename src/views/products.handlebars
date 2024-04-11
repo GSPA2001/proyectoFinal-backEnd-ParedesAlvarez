@@ -3,6 +3,7 @@
   <h2 class="text-center text-muted text-uppercase py-2">{{userName}}</h2>
   <hr class="text-white" />
   <h2 class="text-center text-muted text-uppercase py-2">{{userRol}}</h2>
+  <a class="btn btn-outline-light" href="/carts" role="button">🛒</a>
   <div class="text-center" style="margin-top: 10px">
     <form
       action="/api/sessions/logout"
@@ -35,7 +36,7 @@
             href="/products?page={{pagination.nextPage}}&limit={{pagination.limit}}"
           >Siguiente</a>
         </li>
-      {{/if}}
+      {{/if}}      
     </ul>
   </nav>
   <div class="row">

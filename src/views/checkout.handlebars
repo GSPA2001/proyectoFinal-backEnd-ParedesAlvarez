@@ -14,8 +14,8 @@
         {{/each}}
       </div>
     </div>
-    <div class="flex items-center">
-      <button class="ml-2 px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none" id="confirmOrderButton">Confirmar Orden</button>
+    <div class="text-center" style="margin-top: 32px">
+        <a class="btn btn-success" role="button" onmouseover="showToast()" onmouseout="hideToast()">Confirmar Orden</a>
     </div>
   </div>
   
@@ -27,4 +27,21 @@
     <a class="btn btn-outline-danger" href="/login" role="button">Login</a>
     <a class="btn btn-outline-success" href="/chat" role="button">Chat</a>
   </div>
+  <script>
+    function showToast() {
+        var cartId = "{{cartId}}"; 
+        Toastify({
+            text: `¡Excelente! El ID de su pedido es: ${cartId}`,
+            backgroundColor: "rgba(87, 234, 61, 0.82)",
+            borderRadius: "10px",
+            fontWeight: "300",
+            position: "right", // `left`, `center` or `right`
+        }).showToast();
+    }
+
+    function hideToast() {
+        Toastify.hideToast();
+    }
+</script>
+
 </div>
