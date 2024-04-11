@@ -156,7 +156,7 @@ router.post(
   }),
   async (req, res) => {
     try {
-      res.redirect("/api/sessions/current"); //"/products"
+      res.redirect("/api/sessions/current"); // /products ⇥ Redirige a la página de productos después de iniciar sesión
     } catch (err) {
       res.status(500).send({ status: "ERR", data: err.message });
     }
@@ -171,6 +171,7 @@ router.post(
   }),
   async (req, res) => {
     try {
+      //res.redirect("/products"); // Redirige a la página de productos después de registrarse
       res.status(200).send({ status: "OK", data: "Usuario registrado" });
     } catch (err) {
       res.status(500).send({ status: "ERR", data: err.message });
