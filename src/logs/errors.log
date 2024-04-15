@@ -122,3 +122,33 @@
   label: 'production',
   timestamp: '2024-04-11T02:28:25.401Z'
 }
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-04-12T02:32:40.393Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-04-12T02:34:26.715Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-04-12T02:51:13.587Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-04-15T11:46:12.124Z'
+}
+{
+  message: 'Accediendo a la página de chat 💬..',
+  level: 'info',
+  label: 'production',
+  timestamp: '2024-04-15T11:51:11.992Z'
+}

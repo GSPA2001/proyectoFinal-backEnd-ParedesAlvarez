@@ -3,19 +3,22 @@
     <h2 class="mb-4 text-2xl font-bold text-center text-gray-700">Checkout</h2>
     <div class="mb-4">
       <!-- Mostrar resumen del carrito -->
-      <h3 class="text-lg font-semibold">Resumen del Carrito:</h3>
-      <div id="cartProducts" class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-        {{#each cart.products}}
-          <div class="mb-4">
-            <h3 class="text-lg font-semibold">{{this.title}}</h3>
-            <p class="text-sm text-gray-600">Precio: {{this.price}}</p>
-            <p class="text-sm text-gray-600">Cantidad: {{this.quantity}}</p>
-          </div>
-        {{/each}}
+       <h3 class="text-lg font-semibold">Resumen del Ticket:</h3>
+  <div id="ticketDetails" class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+    {{#if ticket}}
+      <div class="mb-4">
+        <h3 class="text-lg font-semibold">{{ticket.code}}</h3>
+        <p class="text-sm text-gray-600">Fecha de compra: {{ticket.purchase_datetime}}</p>
+        <p class="text-sm text-gray-600">Monto: {{ticket.amount}}</p>
+        <p class="text-sm text-gray-600">Comprador: {{ticket.purchaser}}</p>
       </div>
-    </div>
+    {{else}}
+      <p>No hay ticket disponible para este usuario</p>
+    {{/if}}
+  </div>
+</div>
     <div class="text-center" style="margin-top: 32px">
-        <a class="btn btn-success" role="button" onmouseover="showToast()" onmouseout="hideToast()">Confirmar Orden</a>
+      <a class="btn btn-success" role="button" onclick="confirmarOrden()">Confirmar Orden</a>
     </div>
   </div>
   
@@ -28,20 +31,38 @@
     <a class="btn btn-outline-success" href="/chat" role="button">Chat</a>
   </div>
   <script>
-    function showToast() {
-        var cartId = "{{cartId}}"; 
-        Toastify({
-            text: `¡Excelente! El ID de su pedido es: ${cartId}`,
-            backgroundColor: "rgba(87, 234, 61, 0.82)",
-            borderRadius: "10px",
-            fontWeight: "300",
-            position: "right", // `left`, `center` or `right`
-        }).showToast();
-    }
+  function showToast(message, type) {
+    Toastify({
+      text: message,
+      duration: 3000,
+      close: true,
+      gravity: "top", // 'top' or 'bottom'
+      position: "center", // 'left', 'center' or 'right'
+      backgroundColor: type === "success" ? "green" : "red",
+    }).showToast();
+  }
 
-    function hideToast() {
-        Toastify.hideToast();
-    }
+  function confirmarOrden() {
+    var cartId = "{{cartId}}"; 
+    // Enviar una solicitud al servidor para realizar la compra del carrito con el ID `cartId`
+    fetch(`/api/carts/${cartId}/purchase`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        showToast("¡Éxito! Se realizó tu pedido.", "success");
+      } else {
+        showToast("Error al realizar el pedido. Tendrás que acercarte a nuestro local.", "error");
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+      showToast("Error al realizar el pedido. Tendrás que acercarte a nuestro local.", "error");
+    });
+  }
 </script>
 
 </div>

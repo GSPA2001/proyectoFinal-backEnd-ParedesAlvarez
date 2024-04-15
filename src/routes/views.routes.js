@@ -3,6 +3,8 @@ import { ProductController } from "../controllers/product.controller.js";
 import { UserController } from "../controllers/user.controller.js";
 import productModel from "../models/product.model.js";
 import messageModel from "../models/messages.model.js";
+import ticketModel from '../models/ticket.model.js';
+import cartProducts from '../routes/carts.routes.js';
 import errorsDictionary from '../dao/error.dictionary.js';
 import { catcher } from "../utils.js";
 
@@ -147,8 +149,22 @@ router.get("/recover", async (req, res) => {
 
 router.get("/checkout", async (req, res) => {
   try {
-    // Renderiza la página de checkout
-    res.render("checkout");
+    // Obtener el ID del usuario actual desde la sesión
+    const userId = req.user._id;
+
+    // Obtener el carrito del usuario actual
+    const cart = await cartModel.findOne({ user: userId }).populate("products.product").populate("user");
+
+    if (!cart) {
+      return res.status(404).json({ error: "No cart found for this user" });
+    }
+
+    // Obtener el ticket asociado con el carrito
+    const ticket = await ticketModel.findOne({ purchaser: cart.user.email }).lean().exec();
+
+    // Pasar el ticket y el carrito a la plantilla de checkout
+    res.render("checkout", { ticket, cart });
+
   } catch (err) {
     console.error("Error:", err);
     res.status(500).json({ status: "error", error: err.message });

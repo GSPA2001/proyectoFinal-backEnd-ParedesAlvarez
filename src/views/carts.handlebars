@@ -5,11 +5,12 @@
       <!-- Aquí se mostrarán los productos del carrito -->
       {{#each cart.products}}
         <div class="mb-4">
-          <h3 class="text-lg font-semibold">{{this.title}}</h3>
-          <p class="text-sm text-gray-600">Precio: {{this.price}}</p>
+          <h3 class="text-lg font-semibold">{{this.product.title}}</h3>
+          <p class="text-sm text-gray-600">Precio: {{this.product.price}}</p>
           <p class="text-sm text-gray-600">Cantidad: {{this.quantity}}</p>
         </div>
       {{/each}}
+      <p class="text-lg font-semibold">Total: {{cart.total}}</p>
     </div>
     <div class="flex items-center">
       <a class="btn btn-danger" href="/checkout" role="button">Checkout</a>

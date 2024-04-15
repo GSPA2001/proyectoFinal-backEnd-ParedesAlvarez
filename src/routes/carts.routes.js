@@ -89,7 +89,15 @@ router.get("/:cid", async (req, res) => {
         .status(404)
         .json({ error: `The cart with id ${cartId} does not exist` });
 
-    res.status(200).render("carts", { cart });
+    // Mapear los productos del carrito para obtener los detalles necesarios
+    const cartProducts = cart.products.map(product => ({
+      title: product.pid.title,
+      price: product.pid.price,
+      quantity: product.quantity,
+      amount: product.pid.price * product.quantity
+    }));
+
+    res.status(200).json({ cartProducts, cartId });
   } catch (err) {
     return res.status(500).json({ status: "error", error: err.message });
   }
@@ -115,6 +123,7 @@ router.get("/:cid", async (req, res) => {
  *       404:
  *         description: Carrito no encontrado
  */
+// Agregar lógica para marcar el carrito como comprado o eliminarlo después de la compra
 router.get("/:cid/purchase", async (req, res) => {
   try {
     const cartId = req.params.cid;
@@ -122,9 +131,7 @@ router.get("/:cid/purchase", async (req, res) => {
     const cart = await cartModel.findById(cartId).populate("products.product").populate("user");
 
     if (!cart) {
-      return res
-        .status(404)
-        .json({ error: `The cart with id ${cartId} does not exist` });
+      return res.status(404).json({ error: `The cart with id ${cartId} does not exist` });
     }
 
     const ticketDetails = {
@@ -134,13 +141,19 @@ router.get("/:cid/purchase", async (req, res) => {
       purchaser: cart.user.email,
     };
 
+    // Crear el ticket de compra
     const createdTicket = await ticketDao.createTicket(ticketDetails);
 
+    // Ejemplo de actualización del estado del carrito a "comprado":
+    await cartModel.findByIdAndUpdate(cartId, { status: "comprado" });
+
     res.status(201).json({ status: "success", payload: createdTicket });
+    
   } catch (err) {
     return res.status(500).json({ status: "error", error: err.message });
   }
 });
+
 
 router.put("/:cid", async (req, res) => {
   try {
